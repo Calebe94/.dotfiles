@@ -1,0 +1,4 @@
+Failed to read response from server: 2
+Failed to create IntelliSense client. Can't create intellisense client for /home/calebe94/Projects/Personal/ESP32/ESPBoy/software/main/main.c
+Failed to create IntelliSense client. Can't create intellisense client for /home/calebe94/Projects/Personal/ESP32/ESPBoy/software/components/Drivers/input/hal_keypad.c
+Failed to create IntelliSense client. Can't create intellisense client for /home/calebe94/Projects/Personal/ESP32/ESPBoy/software/main/status_screen.c

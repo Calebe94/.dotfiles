@@ -1,0 +1,27 @@
+[2018-12-19 10:39:35.975] [main] [error] SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at e.loadSync (/opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:305:646)
+    at e.ensureLoaded (/opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:305:113)
+    at e.getItem (/opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:305:165)
+    at e.getItem (/opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:306:86)
+    at t.handleRestarted (/opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:297:969)
+    at t [as constructor] (/opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:297:607)
+    at t.create (/opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:68:770)
+    at t.e._createInstance (/opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:221:215)
+    at t.e._createServiceInstance (/opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:223:234)
+    at t._createServiceInstance (/opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:224:862)
+    at t.e._createServiceInstanceWithOwner (/opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:222:982)
+    at t.e._createAndCacheServiceInstance (/opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:222:652)
+    at t.e._getOrCreateServiceInstance (/opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:221:795)
+    at t.e._createInstance (/opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:220:795)
+    at t.e.createInstance (/opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:220:561)
+    at /opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:506:470
+    at Object.v [as _notify] (/opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:101:572)
+    at Object.enter (/opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:104:924)
+    at n.Class.derive._creator._run (/opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:106:790)
+    at n.Class.derive._creator._completed (/opt/visual-studio-code/resources/app/out/vs/code/electron-main/main.js:106:231)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-12-19 10:39:36.867] [main] [info] update#setState idle
+[2018-12-19 10:40:06.871] [main] [info] update#setState checking for updates
+[2018-12-19 10:40:07.080] [main] [info] update#setState available for download

@@ -1,0 +1,12 @@
+Looking for git in: git
+Using git 2.19.2 from git
+> git rev-parse --show-toplevel
+> git config --get commit.template
+Open repository: /home/calebe94/Projects/IDS_Dashboard
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse aquario
+> git rev-parse --symbolic-full-name aquario@{u}
+fatal: no upstream configured for branch 'aquario'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose

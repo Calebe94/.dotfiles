@@ -1,0 +1,7 @@
+{
+    "editor.fontSize": 10,
+    "workbench.colorTheme": "Monokai",
+    "window.zoomLevel": 0,
+    "window.menuBarVisibility": "toggle",
+    "terminal.integrated.rendererType": "dom"
+}

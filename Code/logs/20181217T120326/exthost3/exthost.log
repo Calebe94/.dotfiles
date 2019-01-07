@@ -1,0 +1,16 @@
+[2018-12-17 12:03:28.901] [exthost] [info] extension host started
+[2018-12-17 12:03:28.944] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"activationEvent":"*"}
+[2018-12-17 12:03:28.944] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/debug-auto-launch/dist/extension
+[2018-12-17 12:03:28.958] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2018-12-17 12:03:28.959] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/emmet/dist/extension
+[2018-12-17 12:03:28.990] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2018-12-17 12:03:28.990] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/git/dist/main
+[2018-12-17 12:03:29.187] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2018-12-17 12:03:29.187] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/merge-conflict/dist/extension
+[2018-12-17 12:03:29.196] [exthost] [info] ExtensionService#_doActivateExtension formulahendry.terminal {"startup":true,"activationEvent":"*"}
+[2018-12-17 12:03:29.196] [exthost] [info] ExtensionService#loadCommonJSModule /home/calebe94/.vscode/extensions/formulahendry.terminal-0.0.10/out/src/extension
+[2018-12-17 12:03:29.287] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode.cpptools {"startup":true,"activationEvent":"*"}
+[2018-12-17 12:03:29.287] [exthost] [info] ExtensionService#loadCommonJSModule /home/calebe94/.vscode/extensions/ms-vscode.cpptools-0.20.1/out/src/main
+[2018-12-17 12:03:29.593] [exthost] [info] eager extensions activated
+[2018-12-17 12:03:29.769] [exthost] [info] ExtensionService#_doActivateExtension platformio.platformio-ide {"startup":true,"activationEvent":"*"}
+[2018-12-17 12:03:29.769] [exthost] [info] ExtensionService#loadCommonJSModule /home/calebe94/.vscode/extensions/platformio.platformio-ide-1.6.0/dist/extension

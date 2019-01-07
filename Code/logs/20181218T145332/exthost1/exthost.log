@@ -1,0 +1,22 @@
+[2018-12-18 14:53:49.038] [exthost] [info] extension host started
+[2018-12-18 14:53:49.073] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"activationEvent":"*"}
+[2018-12-18 14:53:49.073] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/debug-auto-launch/dist/extension
+[2018-12-18 14:53:49.127] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2018-12-18 14:53:49.127] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/emmet/dist/extension
+[2018-12-18 14:53:49.171] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2018-12-18 14:53:49.171] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/git/dist/main
+[2018-12-18 14:53:49.717] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2018-12-18 14:53:49.718] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/merge-conflict/dist/extension
+[2018-12-18 14:53:49.760] [exthost] [info] ExtensionService#_doActivateExtension formulahendry.terminal {"startup":true,"activationEvent":"*"}
+[2018-12-18 14:53:49.760] [exthost] [info] ExtensionService#loadCommonJSModule /home/calebe94/.vscode/extensions/formulahendry.terminal-0.0.10/out/src/extension
+[2018-12-18 14:53:49.835] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode.cpptools {"startup":true,"activationEvent":"*"}
+[2018-12-18 14:53:49.835] [exthost] [info] ExtensionService#loadCommonJSModule /home/calebe94/.vscode/extensions/ms-vscode.cpptools-0.20.1/out/src/main
+[2018-12-18 14:53:52.126] [exthost] [info] ExtensionService#_doActivateExtension vscode.extension-editing {"startup":false,"activationEvent":"onLanguage:markdown"}
+[2018-12-18 14:53:52.126] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/extension-editing/dist/extension
+[2018-12-18 14:53:52.347] [exthost] [info] ExtensionService#_doActivateExtension vscode.markdown-language-features {"startup":false,"activationEvent":"onLanguage:markdown"}
+[2018-12-18 14:53:52.347] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/markdown-language-features/dist/extension
+[2018-12-18 14:53:52.549] [exthost] [info] ExtensionService#_doActivateExtension shd101wyy.markdown-preview-enhanced {"startup":false,"activationEvent":"onLanguage:markdown"}
+[2018-12-18 14:53:52.549] [exthost] [info] ExtensionService#loadCommonJSModule /home/calebe94/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.3.11/out/src/extension
+[2018-12-18 14:53:58.375] [exthost] [info] eager extensions activated
+[2018-12-18 14:53:58.549] [exthost] [info] ExtensionService#_doActivateExtension platformio.platformio-ide {"startup":true,"activationEvent":"*"}
+[2018-12-18 14:53:58.549] [exthost] [info] ExtensionService#loadCommonJSModule /home/calebe94/.vscode/extensions/platformio.platformio-ide-1.6.0/dist/extension

@@ -1,0 +1,74 @@
+[2019-01-07 08:05:15.565] [exthost] [info] extension host started
+[2019-01-07 08:05:15.612] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:05:15.613] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/debug-auto-launch/dist/extension
+[2019-01-07 08:05:15.693] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:05:15.693] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/emmet/dist/extension
+[2019-01-07 08:05:15.733] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:05:15.733] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/git/dist/main
+[2019-01-07 08:05:16.231] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:05:16.231] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/merge-conflict/dist/extension
+[2019-01-07 08:05:16.428] [exthost] [info] ExtensionService#_doActivateExtension formulahendry.terminal {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:05:16.428] [exthost] [info] ExtensionService#loadCommonJSModule /home/calebe94/.vscode/extensions/formulahendry.terminal-0.0.10/out/src/extension
+[2019-01-07 08:05:17.361] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode.cpptools {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:05:17.361] [exthost] [info] ExtensionService#loadCommonJSModule /home/calebe94/.vscode/extensions/ms-vscode.cpptools-0.20.1/out/src/main
+[2019-01-07 08:05:31.922] [exthost] [info] eager extensions activated
+[2019-01-07 08:05:32.457] [exthost] [info] ExtensionService#_doActivateExtension platformio.platformio-ide {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:05:32.457] [exthost] [info] ExtensionService#loadCommonJSModule /home/calebe94/.vscode/extensions/platformio.platformio-ide-1.6.0/dist/extension
+[2019-01-07 08:18:28.182] [exthost] [info] ExtensionService#_doActivateExtension vscode.configuration-editing {"startup":false,"activationEvent":"onLanguage:json"}
+[2019-01-07 08:18:28.182] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/configuration-editing/dist/extension
+[2019-01-07 08:18:28.239] [exthost] [info] ExtensionService#_doActivateExtension vscode.extension-editing {"startup":false,"activationEvent":"onLanguage:json"}
+[2019-01-07 08:18:28.239] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/extension-editing/dist/extension
+[2019-01-07 08:18:28.369] [exthost] [info] ExtensionService#_doActivateExtension vscode.json-language-features {"startup":false,"activationEvent":"onLanguage:json"}
+[2019-01-07 08:18:28.369] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/json-language-features/client/dist/jsonMain
+[2019-01-07 08:18:28.523] [exthost] [info] ExtensionService#_doActivateExtension vscode.npm {"startup":false,"activationEvent":"onLanguage:json"}
+[2019-01-07 08:18:28.523] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/npm/dist/main
+[2019-01-07 08:18:29.428] [exthost] [info] extension host started
+[2019-01-07 08:18:29.485] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:18:29.485] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/debug-auto-launch/dist/extension
+[2019-01-07 08:18:29.496] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:18:29.496] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/emmet/dist/extension
+[2019-01-07 08:18:29.537] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:18:29.537] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/git/dist/main
+[2019-01-07 08:18:29.728] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:18:29.728] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/merge-conflict/dist/extension
+[2019-01-07 08:18:29.738] [exthost] [info] ExtensionService#_doActivateExtension formulahendry.terminal {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:18:29.738] [exthost] [info] ExtensionService#loadCommonJSModule /home/calebe94/.vscode/extensions/formulahendry.terminal-0.0.10/out/src/extension
+[2019-01-07 08:18:29.765] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode.cpptools {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:18:29.766] [exthost] [info] ExtensionService#loadCommonJSModule /home/calebe94/.vscode/extensions/ms-vscode.cpptools-0.20.1/out/src/main
+[2019-01-07 08:18:29.989] [exthost] [info] eager extensions activated
+[2019-01-07 08:18:30.018] [exthost] [info] ExtensionService#_doActivateExtension vscode.configuration-editing {"startup":false,"activationEvent":"onLanguage:json"}
+[2019-01-07 08:18:30.018] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/configuration-editing/dist/extension
+[2019-01-07 08:18:30.030] [exthost] [info] ExtensionService#_doActivateExtension vscode.extension-editing {"startup":false,"activationEvent":"onLanguage:json"}
+[2019-01-07 08:18:30.030] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/extension-editing/dist/extension
+[2019-01-07 08:18:30.085] [exthost] [info] ExtensionService#_doActivateExtension vscode.json-language-features {"startup":false,"activationEvent":"onLanguage:json"}
+[2019-01-07 08:18:30.085] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/json-language-features/client/dist/jsonMain
+[2019-01-07 08:18:30.177] [exthost] [info] ExtensionService#_doActivateExtension vscode.npm {"startup":false,"activationEvent":"onLanguage:json"}
+[2019-01-07 08:18:30.178] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/npm/dist/main
+[2019-01-07 08:18:30.449] [exthost] [info] ExtensionService#_doActivateExtension platformio.platformio-ide {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:18:30.450] [exthost] [info] ExtensionService#loadCommonJSModule /home/calebe94/.vscode/extensions/platformio.platformio-ide-1.6.0/dist/extension
+[2019-01-07 08:19:00.561] [exthost] [info] extension host started
+[2019-01-07 08:19:00.629] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:19:00.629] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/debug-auto-launch/dist/extension
+[2019-01-07 08:19:00.645] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:19:00.645] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/emmet/dist/extension
+[2019-01-07 08:19:00.691] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:19:00.692] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/git/dist/main
+[2019-01-07 08:19:00.936] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:19:00.936] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/merge-conflict/dist/extension
+[2019-01-07 08:19:00.950] [exthost] [info] ExtensionService#_doActivateExtension formulahendry.terminal {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:19:00.950] [exthost] [info] ExtensionService#loadCommonJSModule /home/calebe94/.vscode/extensions/formulahendry.terminal-0.0.10/out/src/extension
+[2019-01-07 08:19:00.984] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode.cpptools {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:19:00.984] [exthost] [info] ExtensionService#loadCommonJSModule /home/calebe94/.vscode/extensions/ms-vscode.cpptools-0.20.1/out/src/main
+[2019-01-07 08:19:01.232] [exthost] [info] ExtensionService#_doActivateExtension vscode.configuration-editing {"startup":false,"activationEvent":"onLanguage:json"}
+[2019-01-07 08:19:01.232] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/configuration-editing/dist/extension
+[2019-01-07 08:19:01.246] [exthost] [info] ExtensionService#_doActivateExtension vscode.extension-editing {"startup":false,"activationEvent":"onLanguage:json"}
+[2019-01-07 08:19:01.246] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/extension-editing/dist/extension
+[2019-01-07 08:19:01.313] [exthost] [info] ExtensionService#_doActivateExtension vscode.json-language-features {"startup":false,"activationEvent":"onLanguage:json"}
+[2019-01-07 08:19:01.313] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/json-language-features/client/dist/jsonMain
+[2019-01-07 08:19:01.440] [exthost] [info] ExtensionService#_doActivateExtension vscode.npm {"startup":false,"activationEvent":"onLanguage:json"}
+[2019-01-07 08:19:01.440] [exthost] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/npm/dist/main
+[2019-01-07 08:19:01.507] [exthost] [info] eager extensions activated
+[2019-01-07 08:19:01.918] [exthost] [info] ExtensionService#_doActivateExtension platformio.platformio-ide {"startup":true,"activationEvent":"*"}
+[2019-01-07 08:19:01.919] [exthost] [info] ExtensionService#loadCommonJSModule /home/calebe94/.vscode/extensions/platformio.platformio-ide-1.6.0/dist/extension
+[2019-01-07 08:19:06.420] [exthost] [info] ExtensionService#_doActivateExtension octref.vetur {"startup":false,"activationEvent":"onLanguage:vue"}
+[2019-01-07 08:19:06.420] [exthost] [info] ExtensionService#loadCommonJSModule /home/calebe94/.vscode/extensions/octref.vetur-0.14.3/dist/client/vueMain
