@@ -17,10 +17,6 @@ Coming Soon...
 |:---------------------------------------------------------------------------------:|
 | [Edimar Calebe Castanho (Calebe94)](https://github.com/Calebe94)                  |
 
-## Contributing
-
-Comming soon...
-
 # License
 
 All software is covered under [MIT License](https://opensource.org/licenses/MIT).
