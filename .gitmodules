@@ -1,3 +1,6 @@
 [submodule "SpaceVim"]
 	path = SpaceVim
 	url = https://github.com/SpaceVim/SpaceVim
+[submodule "foo-Wallpaper-Feh-Gif"]
+	path = foo-Wallpaper-Feh-Gif
+	url = https://github.com/thomas10-10/foo-Wallpaper-Feh-Gif
