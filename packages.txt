@@ -1,0 +1,16 @@
+KeeWeb
+i3
+i3blocks
+i3gaps
+feh
+Terminology
+nvim
+SpaceVim
+git
+spotify
+chromium
+VSCode
+simplenote
+thunderbird
+telegram
+zsh
