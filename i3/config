@@ -23,7 +23,7 @@ floating_modifier $mod
 # Launch terminal
 # bindsym $mod+Return exec i3-sensible-terminal
 # bindsym $mod+Return exec termite
-bindsym $mod+Return exec terminology
+bindsym $mod+Return exec st
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -83,13 +83,18 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
+bindsym $mod+b focus mode_toggle
+
+# Open Dmenu
+bindsym $mod+space exec dmenu_run -l 5 -fn "monospace:size=20"
+
 
 # focus the parent container
 bindsym $mod+a focus parent
 
 # Workspace naming
-set $workspace1 "1: Terminal "
+set $workspace1 "1: Utilities "
 set $workspace2 "2: Navigation "
 set $workspace3 "3: Folders "
 set $workspace4 "4: Code Editing "
@@ -134,8 +139,10 @@ workspace $workspace5 output $monitor_two
 workspace $workspace5 output $monitor_two
 
 # Forcing apps on workspaces
-assign [class="Terminology"] $workspace1
-assign [class="terminology"] $workspace1
+#assign [class="Terminology"] $workspace1
+#assign [class="terminology"] $workspace1
+assign [class="KeeWeb"] $workspace1
+
 # Web apps
 assign [class="Firefox"] $workspace2
 assign [class="Chromium"] $workspace2
@@ -163,7 +170,7 @@ assign [class="Thunderbird"] $workspace6
 # Notes apps
 assign [class="simplenote"] $workspace7
 assign [class="Simplenote"] $workspace7
-assign [class="KeeWeb"] $workspace7
+
 # PDF's apps
 assign [class="okular"] $workspace8
 # Test Apps
@@ -206,8 +213,8 @@ bindsym $mod+Ctrl+Right resize grow width 10 px or 10 ppt
 bindsym $mod+Ctrl+Up resize shrink height 10 px or 10 ppt
 bindsym $mod+Ctrl+Down resize grow height 10 px or 10 ppt
 bindsym $mod+Ctrl+Left resize shrink width 10 px or 10 ppt
-bindsym $mod+Ctrl+minus resize shrink up 10 px or 10 ppt, resize shrink down 10 px or 10 ppt, resize shrink left 20 px or 20 ppt, resize shrink right 20 px or 20 ppt
-bindsym $mod+Ctrl+equal resize grow up 10 px or 10 ppt, resize grow down 10 px or 10 ppt, resize grow left 20 px or 20 ppt, resize grow right 20 px or 20 ppt
+bindsym $mod+Shift+minus resize shrink up 10 px or 10 ppt, resize shrink down 10 px or 10 ppt, resize shrink left 20 px or 20 ppt, resize shrink right 20 px or 20 ppt
+bindsym $mod+Shift+equal resize grow up 10 px or 10 ppt, resize grow down 10 px or 10 ppt, resize grow left 20 px or 20 ppt, resize grow right 20 px or 20 ppt
 # Color config
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
@@ -227,7 +234,6 @@ new_window pixel 0
 bar {
         # Bar program
         status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
-        
         # Position of the bar
         position bottom
         
@@ -262,6 +268,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Personal KeyBindings
 bindsym $mod+x exec i3lock --color "$bg-color"
+#bindsym $mod+x exec i3lock 
 bindsym $mod+Shift+x exec shutdown -h now
 
 # Invert scrolling
@@ -274,7 +281,9 @@ exec syndaemon -i 0.3 -t -K -R
 exec_always choose_wallpaper
 
 #set $feh exec --no-startup-id feh --bg-scale
-exec feh --bg-scale ~/Imagens/language_tree.png
+#exec feh --bg-scale ~/Imagens/language_tree.png
+exec --no-startup-id nitrogen --restore
+
 # Sysmem compositor
 exec_always compton
 
@@ -296,9 +305,9 @@ exec telegram		# Launch Telegram
 
 # XFCE Menu
 
-bindsym $mod+m exec xfdashboard
+#bindsym $mod+m exec xfdashboard
 for_window [class="^.*"] border pixel 0
-gaps inner 10
+gaps inner 5
 gaps outer 0
 
 # URGENT Window
@@ -309,5 +318,23 @@ for_window [urgent=latest] focus
 
 default_orientation vertical
 for_window [class=".*"] split toggle 
+
+
+for_window [class="KeeWeb"] floating enable
+for_window [class="terminology"] floating enable
+for_window [class="st"] floating enable
 #bindsym $mod+shift+q split toggle kill 
 #bindsym $mod+e layout toggle split 
+
+# Move Workspaces Through Monitors
+
+#bindsym $mod+m move container to output right
+#bindsym $mod+n move container to output left
+
+bindsym $mod+m exec i3-msg move workspace to output right
+bindsym $mod+n exec i3-msg move workspace to output left
+
+bindsym $mod+c exec xfce4-settings-manager
+bindsym $mod+g move scratchpad
+bindsym $mod+t scratchpad show
+bindsym $mod+Shift+g [title="^Sup ::"] scratchpad show

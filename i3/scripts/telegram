@@ -1,4 +1,5 @@
 #!/bin/bash
 
 # Executes telegram desktop app
-$HOME/.telegram/Telegram
+#$HOME/.telegram/Telegram
+$(which telegram)
