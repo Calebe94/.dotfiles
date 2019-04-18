@@ -10,6 +10,16 @@ That is the theme of my ~/
 
 Coming Soon...
 
+## Softwares Used
+
+* i3
+* i3-gaps
+* i3blocks
+* i3msg
+* [sxiv](https://github.com/muennich/sxiv) - Simple X Image Viewer
+* [zathura](https://github.com/pwmt/zathura) - a document viewer
+* [Shutter](https://launchpad.net/shutter)- capture tool or [xscreenshot](https://git.2f30.org/xscreenshot/file/README.html) - simple screenshot utility 
+* [nitrogen](https://wiki.archlinux.org/index.php/Nitrogen) - lightweight desktop background browser and setter for X windows
 
 # Team
 

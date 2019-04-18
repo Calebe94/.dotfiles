@@ -89,7 +89,6 @@ bindsym $mod+b focus mode_toggle
 # Open Dmenu
 bindsym $mod+space exec dmenu_run -l 5 -fn "monospace:size=20"
 
-
 # focus the parent container
 bindsym $mod+a focus parent
 
@@ -323,6 +322,7 @@ for_window [class=".*"] split toggle
 for_window [class="KeeWeb"] floating enable
 for_window [class="terminology"] floating enable
 for_window [class="st"] floating enable
+
 #bindsym $mod+shift+q split toggle kill 
 #bindsym $mod+e layout toggle split 
 
@@ -338,3 +338,4 @@ bindsym $mod+c exec xfce4-settings-manager
 bindsym $mod+g move scratchpad
 bindsym $mod+t scratchpad show
 bindsym $mod+Shift+g [title="^Sup ::"] scratchpad show
+
