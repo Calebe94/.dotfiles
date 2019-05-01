@@ -1,7 +1,0 @@
-[2018-12-17 08:26:37.710] [renderer1] [info] no standard startup: not running latest version
-[2018-12-17 13:45:08.361] [renderer1] [error] spawn linux ENOENT: Error: spawn linux ENOENT
-    at _errnoException (util.js:1024:11)
-    at Process.__dirname.ChildProcess._handle.onexit (internal/child_process.js:190:19)
-    at onErrorNT (internal/child_process.js:372:16)
-    at _combinedTickCallback (internal/process/next_tick.js:138:11)
-    at process._tickCallback (internal/process/next_tick.js:180:9)
