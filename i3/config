@@ -41,8 +41,8 @@ bindsym $mod+Shift+t exec thunar
 
 # Rofi menu launcher
 set $rofi_theme "$HOME/.config/i3/rofithemes/flat-blue.rasi"
-bindsym $mod+d exec rofi -show run -config $rofi_theme
-bindsym $mod+Shift+d exec rofi -show window -config $rofi_theme
+#bindsym $mod+d exec rofi -show run -config $rofi_theme
+#bindsym $mod+Shift+d exec rofi -show window -config $rofi_theme
 
 # change focus
 bindsym $mod+j focus left
@@ -87,7 +87,8 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+b focus mode_toggle
 
 # Open Dmenu
-bindsym $mod+space exec dmenu_run -l 5 -fn "monospace:size=20"
+#bindsym $mod+space exec dmenu_run -l 5 -fn "monospace:size=20"
+bindsym $mod+d exec dmenu_run 
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -279,9 +280,11 @@ exec syndaemon -i 0.3 -t -K -R
 # Apps on start
 exec_always choose_wallpaper
 
-#set $feh exec --no-startup-id feh --bg-scale
-#exec feh --bg-scale ~/Imagens/language_tree.png
-exec --no-startup-id nitrogen --restore
+#set $feh exec --no-startup-id 
+exec --no-startup-id feh --bg-scale $HOME/.config/i3/wallpaper/wallpaper1.png
+#exec feh --bg-scale $HOME/.config/i3/wallpaper/wallpaper1.png
+
+#exec --no-startup-id nitrogen --restore
 
 # Sysmem compositor
 exec_always compton
@@ -338,4 +341,6 @@ bindsym $mod+c exec xfce4-settings-manager
 bindsym $mod+g move scratchpad
 bindsym $mod+t scratchpad show
 bindsym $mod+Shift+g [title="^Sup ::"] scratchpad show
+
+exec xrandr --output Virtual1 --mode 1680x1050
 
