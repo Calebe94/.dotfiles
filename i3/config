@@ -8,90 +8,92 @@
 # Monitors
 # You can list your monitor with:
 # xrandr -q
-set $monitor_one DP-1
-set $monitor_two DP-2
+#set $monitor_one DP-1
+#set $monitor_two DP-2
 
-# Windows modkey
-set $mod Mod4
 
-# Fonts
-font pango:System San Francisco Display 8
+# CMD(Macbook) or Windows key
+set $mod Mod4  
+# Alr_L key
+set $mod1 Mod1  
+
+# i3-blocks font ?
+font pango:System San Francisco Display 10  
  
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
+floating_modifier $mod  
+focus_follows_mouse no
 # Launch terminal
-# bindsym $mod+Return exec i3-sensible-terminal
-# bindsym $mod+Return exec termite
-bindsym $mod+Return exec st
-# kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Return exec st 
 
-# Launch Firefox
-bindsym $mod+Shift+f exec firefox
+# Kill focused window
+bindsym $mod+q kill   
 
-# Launch Chromium
-bindsym $mod+Shift+b exec chromium
+# Change focused window left
+bindsym $mod+Left focus left    
+# Change focused window down 
+bindsym $mod+Down focus down    
+# Change focused window up 
+bindsym $mod+Up focus up        
+# Change focused window right
+bindsym $mod+Right focus right  
 
-#Launch VSCode
-bindsym $mod+Shift+c exec code
+# Move focused window left 
+bindsym $mod+mod1+Left move left      
+# Move focused window down
+bindsym $mod+mod1+Down move down      
+# Move focused window up 
+bindsym $mod+mod1+Up move up          
+# Move focused window right 
+bindsym $mod+mod1+Right move right    
 
-# Launch Thunar
-bindsym $mod+Shift+t exec thunar
+# Split container in horizontal orientaition
+bindsym $mod+Shift+h split h  
+# Split container in vertical orientation
+bindsym $mod+Shift+v split v  
 
-# Rofi menu launcher
-set $rofi_theme "$HOME/.config/i3/rofithemes/flat-blue.rasi"
-#bindsym $mod+d exec rofi -show run -config $rofi_theme
-#bindsym $mod+Shift+d exec rofi -show window -config $rofi_theme
+######################################################################################
+############################### MacOS Hotkeys ########################################
+######################################################################################
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+ntilde focus right
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+v exec xvkbd -no-jump-pointer -xsendevent -text '\Cv'
+bindsym $mod+z exec xvkbd -no-jump-pointer -xsendevent -text '\Cz'
+bindsym $mod+x exec xvkbd -no-jump-pointer -xsendevent -text '\Cx'
+bindsym $mod+c exec xvkbd -no-jump-pointer -xsendevent -text '\Cc'
+bindsym $mod+t exec xvkbd -no-jump-pointer -xsendevent -text '\Ct'
+bindsym $mod+s exec xvkbd -no-jump-pointer -xsendevent -text '\Cs'
+bindsym $mod+r exec xvkbd -no-jump-pointer -xsendevent -text '\Cr'
+bindsym $mod+w exec xvkbd -no-jump-pointer -xsendevent -text '\Cw'
+bindsym $mod+f exec xvkbd -no-jump-pointer -xsendevent -text '\Cf'
+bindsym $mod1+c exec xvkbd -no-jump-pointer -xsendevent -text 'ç' 
+bindsym $mod+Shift+Left exec xvkbd -no-jump-pointer -xsendevent -text '\C\S\[Left]'
+bindsym $mod+Shift+Right exec xvkbd -no-jump-pointer -xsendevent -text '\C\S\[Right]'
 
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+ntilde move right
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# Activate Fullscreen Mode
+bindsym $mod+Shift+f fullscreen toggle  
+# Activate Picture-in-Picture Mode
+bindsym $mod+y fullscreen disable; floating enable, sticky enable, resize set 250 170;  
 
-# Split horizontal and vertical orientation
-bindsym $mod+h split h
-bindsym $mod+v split v
 
-# Fullscreen mode
-bindsym $mod+f fullscreen toggle
-#bindsym --release $mod+y exec "sleep 0.2; xdotool key f; i3-msg fullscreen toggle"
-bindsym $mod+y fullscreen disable; floating enable, sticky enable, resize set 250 170;
-#bindsym $mod+y fullscreen disable, floating enable, resize set 250 170, sticky enable, move window to position 1515 20
+# Change container layout to stacked (stacked, tabbed, toggle split)
+#bindsym $mod+s layout stacking 
+# Change container layout to tabbed 
+bindsym $mod+Shift+t layout tabbed        
+# Change container layout Toggle Split
+bindsym $mod+e layout toggle split  
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# Toggle Tiling/Floating
+bindsym $mod+Shift+space floating toggle  
 
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+# Change focus between tiling / floating windows
+bindsym $mod+b focus mode_toggle  
 
-# change focus between tiling / floating windows
-#bindsym $mod+space focus mode_toggle
-bindsym $mod+b focus mode_toggle
-
-# Open Dmenu
-#bindsym $mod+space exec dmenu_run -l 5 -fn "monospace:size=20"
-bindsym $mod+d exec dmenu_run 
+# Open dmenu
+bindsym $mod+space exec dmenu_run -fn "San Francisco Display:size=13"
+#bindsym $mod+space exec dmenu_run   
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # Workspace naming
 set $workspace1 "1: Utilities "
@@ -131,12 +133,12 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # Fixing workspace to a certain monitor
 
-workspace $workspace1 output $monitor_one
-workspace $workspace2 output $monitor_two
+#workspace $workspace1 output $monitor_one
+#workspace $workspace2 output $monitor_two
 #workspace $workspace3 output $monitor_one
-workspace $workspace4 output $monitor_one
-workspace $workspace5 output $monitor_two
-workspace $workspace5 output $monitor_two
+#workspace $workspace4 output $monitor_one
+#workspace $workspace5 output $monitor_two
+#workspace $workspace5 output $monitor_two
 
 # Forcing apps on workspaces
 #assign [class="Terminology"] $workspace1
@@ -144,8 +146,8 @@ workspace $workspace5 output $monitor_two
 assign [class="KeeWeb"] $workspace1
 
 # Web apps
-assign [class="Firefox"] $workspace2
-assign [class="Chromium"] $workspace2
+assign [class=Firefox|qutebrowser|Chromium] $workspace2
+
 # Coding apps
 assign [class="Atom"] $workspace4
 assign [class="Code"] $workspace4
@@ -163,7 +165,6 @@ assign [class="Slack"] $workspace5
 assign [class="spotify"] $workspace10
 assign [class="Spotify"] $workspace10
 assign [class="google-musicmanager"] $workspace10
-assign [class="YoutubePIP"] $workspace10
 # Mail apps
 assign [class="thunderbird"] $workspace6
 assign [class="Thunderbird"] $workspace6
@@ -208,11 +209,11 @@ mode "resize" {
 }
 
 # Resize binding
-bindsym $mod+r mode "resize"
-bindsym $mod+Ctrl+Right resize grow width 10 px or 10 ppt
-bindsym $mod+Ctrl+Up resize shrink height 10 px or 10 ppt
-bindsym $mod+Ctrl+Down resize grow height 10 px or 10 ppt
-bindsym $mod+Ctrl+Left resize shrink width 10 px or 10 ppt
+bindsym $mod+d mode "resize"
+#bindsym $mod+Ctrl+Right resize grow width 10 px or 10 ppt
+#bindsym $mod+Ctrl+Up resize shrink height 10 px or 10 ppt
+#bindsym $mod+Ctrl+Down resize grow height 10 px or 10 ppt
+#bindsym $mod+Ctrl+Left resize shrink width 10 px or 10 ppt
 bindsym $mod+Shift+minus resize shrink up 10 px or 10 ppt, resize shrink down 10 px or 10 ppt, resize shrink left 20 px or 20 ppt, resize shrink right 20 px or 20 ppt
 bindsym $mod+Shift+equal resize grow up 10 px or 10 ppt, resize grow down 10 px or 10 ppt, resize grow left 20 px or 20 ppt, resize grow right 20 px or 20 ppt
 # Color config
@@ -234,45 +235,56 @@ new_window pixel 0
 bar {
         # Bar program
         status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
+	      #status_command i3blocks
         # Position of the bar
-        position bottom
+        position top
         
         # Bar colors
         colors {
-		background $bg-color
-	    	separator #757575
-		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-	        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+		      background $bg-color
+	    	  separator #757575
+		      #                  border             background         text
+		      focused_workspace  $bg-color          $bg-color          $text-color
+		      inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+			        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
         }
 }
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.config/i3/scripts/volume inc 
+bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.config/i3/scripts/volume dec 
+bindsym XF86AudioMute exec --no-startup-id $HOME/.config/i3/scripts/volume mute
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+# install xbacklight and hope that this works: https://askubuntu.com/questions/715306/xbacklight-no-outputs-have-backlight-property-no-sys-class-backlight-folder
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
-# Touchpad controls
+# Touchpad controlsamixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }'
 bindsym XF86TouchpadToggle exec $HOME/bin/toggletouchpad # toggle touchpad
 
+# Add the path to the script to the /etc/sudoers file.
+# Example: username ALL=(root) NOPASSWD: /path/to/the/script 
+bindsym XF86KbdBrightnessUp exec sudo $HOME/.config/i3/scripts/keyboard_backlight inc
+bindsym XF86KbdBrightnessDown exec sudo $HOME/.config/i3/scripts/keyboard_backlight dec
+
+
+bindsym XF86LaunchA exec notify-send "Tecla" "Launch A"
+bindsym XF86LaunchB exec dmenu_run -fn "San Francisco Display:size=13"
+
 # Music song controls
-bindsym XF86AudioPlay exec play_pause
-bindsym XF86AudioPause exec play_pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec notify-send "Tecla" "Play/Pause"
+bindsym XF86AudioPause exec notify-send "Tecla" "Play/Pause"
+bindsym XF86AudioNext exec notify-send "Tecla" "Next"
+bindsym XF86AudioPrev exec notify-send "Tecla" "Previous"
 
 # Personal KeyBindings
-bindsym $mod+x exec i3lock --color "$bg-color"
+bindsym $mod+o exec i3lock --color "$bg-color"
 #bindsym $mod+x exec i3lock 
 bindsym $mod+Shift+x exec shutdown -h now
 
 # Invert scrolling
-exec_always --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113 
+#exec_always --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113 
 
 # Disable tap while typing
 exec syndaemon -i 0.3 -t -K -R
@@ -281,35 +293,23 @@ exec syndaemon -i 0.3 -t -K -R
 exec_always choose_wallpaper
 
 #set $feh exec --no-startup-id 
-exec --no-startup-id feh --bg-scale $HOME/.config/i3/wallpaper/wallpaper1.png
+#exec feh --bg-scale $HOME/.dotfiles/wallpapers/youshouldbeworkingnow.jpg
 #exec feh --bg-scale $HOME/.config/i3/wallpaper/wallpaper1.png
 
-#exec --no-startup-id nitrogen --restore
+exec --no-startup-id nitrogen --restore
 
 # Sysmem compositor
 exec_always compton
 
 # Taking a Screenshot
-
 bindsym $mod+p exec shutter -s -e -o 'Imagens/%y-%m-%d_%T.png'
 for_window [class="Shutter"] fullscreen disable, floating enable;
 
-# Launch at APPs startup
-
-#exec firefox
-exec chromium-browser 	# Launch chromium at startup
-exec terminology 	# Launch terminology at startup 
-exec thunar 		# Launch thunar at startup
-exec thunderbird 	# Launch thunderbird
-exec code 		# Launch VSCode
-exec slack 		# Launch Slack
-exec telegram		# Launch Telegram
-
-# XFCE Menu
-
-#bindsym $mod+m exec xfdashboard
+######################################################################################
+################################## i3-gaps ###########################################
+######################################################################################
 for_window [class="^.*"] border pixel 0
-gaps inner 5
+gaps inner 2
 gaps outer 0
 
 # URGENT Window
@@ -325,22 +325,20 @@ for_window [class=".*"] split toggle
 for_window [class="KeeWeb"] floating enable
 for_window [class="terminology"] floating enable
 for_window [class="st"] floating enable
-
-#bindsym $mod+shift+q split toggle kill 
-#bindsym $mod+e layout toggle split 
+for_window [class="pavucontrol"] floating enable;
 
 # Move Workspaces Through Monitors
 
 #bindsym $mod+m move container to output right
 #bindsym $mod+n move container to output left
 
-bindsym $mod+m exec i3-msg move workspace to output right
-bindsym $mod+n exec i3-msg move workspace to output left
+#bindsym $mod+m exec i3-msg move workspace to output right
+#bindsym $mod+n exec i3-msg move workspace to output left
 
-bindsym $mod+c exec xfce4-settings-manager
-bindsym $mod+g move scratchpad
-bindsym $mod+t scratchpad show
-bindsym $mod+Shift+g [title="^Sup ::"] scratchpad show
+bindsym $mod+m move scratchpad
+bindsym $mod+n scratchpad show
 
-exec xrandr --output Virtual1 --mode 1680x1050
+#exec xrandr --output Virtual1 --mode 1680x1050
 
+bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Ctrl+Right workspace next

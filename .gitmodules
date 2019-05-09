@@ -4,3 +4,6 @@
 [submodule "foo-Wallpaper-Feh-Gif"]
 	path = submodules/foo-Wallpaper-Feh-Gif
 	url = https://github.com/thomas10-10/foo-Wallpaper-Feh-Gif
+[submodule "submodules/apricity-icons"]
+	path = submodules/apricity-icons
+	url = https://github.com/Apricity-OS/apricity-icons
