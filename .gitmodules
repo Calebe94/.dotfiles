@@ -7,3 +7,9 @@
 [submodule "submodules/apricity-icons"]
 	path = submodules/apricity-icons
 	url = https://github.com/Apricity-OS/apricity-icons
+[submodule "submodules/i3-gaps"]
+	path = submodules/i3-gaps
+	url = https://github.com/Airblader/i3/
+[submodule "submodules/libinput-gestures"]
+	path = submodules/libinput-gestures
+	url = https://github.com/bulletmark/libinput-gestures

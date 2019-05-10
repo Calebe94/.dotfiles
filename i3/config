@@ -22,7 +22,7 @@ font pango:System San Francisco Display 10
  
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod  
-focus_follows_mouse no
+#focus_follows_mouse no
 # Launch terminal
 bindsym $mod+Return exec st 
 
@@ -60,15 +60,19 @@ bindsym $mod+v exec xvkbd -no-jump-pointer -xsendevent -text '\Cv'
 bindsym $mod+z exec xvkbd -no-jump-pointer -xsendevent -text '\Cz'
 bindsym $mod+x exec xvkbd -no-jump-pointer -xsendevent -text '\Cx'
 bindsym $mod+c exec xvkbd -no-jump-pointer -xsendevent -text '\Cc'
+#bindsym --release $mod+c exec --no-startup-id xdotool key --clearmodifiers ctrl+c
 bindsym $mod+t exec xvkbd -no-jump-pointer -xsendevent -text '\Ct'
 bindsym $mod+s exec xvkbd -no-jump-pointer -xsendevent -text '\Cs'
 bindsym $mod+r exec xvkbd -no-jump-pointer -xsendevent -text '\Cr'
 bindsym $mod+w exec xvkbd -no-jump-pointer -xsendevent -text '\Cw'
-bindsym $mod+f exec xvkbd -no-jump-pointer -xsendevent -text '\Cf'
 bindsym $mod1+c exec xvkbd -no-jump-pointer -xsendevent -text 'ç' 
 bindsym $mod+Shift+Left exec xvkbd -no-jump-pointer -xsendevent -text '\C\S\[Left]'
 bindsym $mod+Shift+Right exec xvkbd -no-jump-pointer -xsendevent -text '\C\S\[Right]'
 
+bindsym $mod+comma exec exec xvkbd -no-jump-pointer -xsendevent -text '\A\[Left]'
+bindsym $mod+period exec exec xvkbd -no-jump-pointer -xsendevent -text '\A\[Right]'
+
+bindsym --whole-window $mod+button3 floating toggle
 # Activate Fullscreen Mode
 bindsym $mod+Shift+f fullscreen toggle  
 # Activate Picture-in-Picture Mode
@@ -131,52 +135,8 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
-# Fixing workspace to a certain monitor
-
-#workspace $workspace1 output $monitor_one
-#workspace $workspace2 output $monitor_two
-#workspace $workspace3 output $monitor_one
-#workspace $workspace4 output $monitor_one
-#workspace $workspace5 output $monitor_two
-#workspace $workspace5 output $monitor_two
-
-# Forcing apps on workspaces
-#assign [class="Terminology"] $workspace1
-#assign [class="terminology"] $workspace1
-assign [class="KeeWeb"] $workspace1
-
 # Web apps
 assign [class=Firefox|qutebrowser|Chromium] $workspace2
-
-# Coding apps
-assign [class="Atom"] $workspace4
-assign [class="Code"] $workspace4
-assign [class="Gedit"] $workspace4
-assign [class="Kate"] $workspace4
-# File apps
-assign [class="Nautilus"] $workspace3
-assign [class="Thunar"] $workspace3
-# Texting apps
-assign [class="TelegramDesktop"] $workspace5
-assign [class="whatsapp-desktop"] $workspace5
-assign [class="ms-skype"] $workspace5
-assign [class="Slack"] $workspace5
-# Music apps
-assign [class="spotify"] $workspace10
-assign [class="Spotify"] $workspace10
-assign [class="google-musicmanager"] $workspace10
-# Mail apps
-assign [class="thunderbird"] $workspace6
-assign [class="Thunderbird"] $workspace6
-# Notes apps
-assign [class="simplenote"] $workspace7
-assign [class="Simplenote"] $workspace7
-
-# PDF's apps
-assign [class="okular"] $workspace8
-# Test Apps
-assign [class="VirtualBox"] $workspace9
-
 # URGENT WORKSPACES
 bindsym $mod+u [urgent=latest] focus
 
@@ -246,7 +206,7 @@ bar {
 		      #                  border             background         text
 		      focused_workspace  $bg-color          $bg-color          $text-color
 		      inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-			        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+			    urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
         }
 }
 
@@ -268,7 +228,6 @@ bindsym XF86TouchpadToggle exec $HOME/bin/toggletouchpad # toggle touchpad
 bindsym XF86KbdBrightnessUp exec sudo $HOME/.config/i3/scripts/keyboard_backlight inc
 bindsym XF86KbdBrightnessDown exec sudo $HOME/.config/i3/scripts/keyboard_backlight dec
 
-
 bindsym XF86LaunchA exec notify-send "Tecla" "Launch A"
 bindsym XF86LaunchB exec dmenu_run -fn "San Francisco Display:size=13"
 
@@ -284,13 +243,13 @@ bindsym $mod+o exec i3lock --color "$bg-color"
 bindsym $mod+Shift+x exec shutdown -h now
 
 # Invert scrolling
-#exec_always --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113 
+exec_always --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113 
 
 # Disable tap while typing
-exec syndaemon -i 0.3 -t -K -R
+#exec syndaemon -i 0.3 -t -K -R
 
 # Apps on start
-exec_always choose_wallpaper
+#exec_always choose_wallpaper
 
 #set $feh exec --no-startup-id 
 #exec feh --bg-scale $HOME/.dotfiles/wallpapers/youshouldbeworkingnow.jpg
@@ -302,8 +261,8 @@ exec --no-startup-id nitrogen --restore
 exec_always compton
 
 # Taking a Screenshot
-bindsym $mod+p exec shutter -s -e -o 'Imagens/%y-%m-%d_%T.png'
-for_window [class="Shutter"] fullscreen disable, floating enable;
+#bindsym $mod+p exec shutter -s -e -o 'Imagens/%y-%m-%d_%T.png'
+#for_window [class="Shutter"] fullscreen disable, floating enable;
 
 ######################################################################################
 ################################## i3-gaps ###########################################
@@ -316,17 +275,12 @@ gaps outer 0
 # It focus on a window once it becomes urgent
 # You could also combine criteria if you only want to focus certain applications:
 # for_window [urgent="latest" class="XTerm"] focus
-for_window [urgent=latest] focus
+for_window [urgent=latest] focus;
 
 default_orientation vertical
-for_window [class=".*"] split toggle 
+#for_window [class=".*"] split toggle 
 
-
-for_window [class="KeeWeb"] floating enable
-for_window [class="terminology"] floating enable
-for_window [class="st"] floating enable
-for_window [class="pavucontrol"] floating enable;
-
+for_window [class="St"] floating enable;
 # Move Workspaces Through Monitors
 
 #bindsym $mod+m move container to output right
@@ -342,3 +296,4 @@ bindsym $mod+n scratchpad show
 
 bindsym $mod+Ctrl+Left workspace prev
 bindsym $mod+Ctrl+Right workspace next
+
