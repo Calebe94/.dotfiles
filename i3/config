@@ -228,7 +228,7 @@ bindsym XF86TouchpadToggle exec $HOME/bin/toggletouchpad # toggle touchpad
 bindsym XF86KbdBrightnessUp exec sudo $HOME/.config/i3/scripts/keyboard_backlight inc
 bindsym XF86KbdBrightnessDown exec sudo $HOME/.config/i3/scripts/keyboard_backlight dec
 
-bindsym XF86LaunchA exec notify-send "Tecla" "Launch A"
+bindsym XF86LaunchA exec $HOME/.config/i3/scripts/i3-scratchpad-dmenu
 bindsym XF86LaunchB exec dmenu_run -fn "San Francisco Display:size=13"
 
 # Music song controls
