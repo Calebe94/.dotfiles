@@ -5,24 +5,121 @@
 #       https://github.com/Calebe94
 # Version:
 
-# Monitors
-# You can list your monitor with:
-# xrandr -q
-#set $monitor_one DP-1
-#set $monitor_two DP-2
+# ----------------------------------- #
+# ========= Modifier Keys =========== #
+# ----------------------------------- #
 
-
-# CMD(Macbook) or Windows key
+# CMD(Macbook) or Super (Windows) key
 set $mod Mod4  
 # Alr_L key
 set $mod1 Mod1  
 
-# i3-blocks font ?
-font pango:System San Francisco Display 10  
- 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod  
-#focus_follows_mouse no
+
+# ----------------------------------- #
+# ========= Customization =========== #
+# ----------------------------------- #
+
+# i3-blocks font ?
+font pango:System San Francisco Display 10  
+focus_follows_mouse yes
+
+# Color config
+set $bg-color 	                #2f343f
+set $inactive-bg-color          #2f343f
+set $text-color                 #f3f4f5
+set $inactive-text-color        #676E7D
+set $urgent-bg-color            #E53935
+
+# Window colors
+client.focused          $bg-color           $bg-color          $text-color          #00ff00
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+
+new_window pixel 0
+
+# Workspace naming
+set $workspace1 "1: Utilities "
+set $workspace2 "2: Navigation "
+set $workspace3 "3: Folders "
+set $workspace4 "4: Code Editing "
+set $workspace5 "5: Texting "
+set $workspace6 "6: Mail " 
+set $workspace7 "7: Notes "
+set $workspace8 "8: PDF "
+set $workspace9 "9: Tests "
+set $workspace10 "10: Music "
+
+# Web apps
+assign [class=Firefox|qutebrowser|Chromium|Navigator|Nightly] $workspace2
+
+# ***************** #
+# ---- i3-gaps ---- #
+# ***************** #
+for_window [class="^.*"] border pixel 0
+gaps inner 2
+gaps outer 0
+
+# URGENT Window
+# It focus on a window once it becomes urgent
+# You could also combine criteria if you only want to focus certain applications:
+# for_window [urgent="latest" class="XTerm"] focus
+for_window [urgent=latest] focus;
+
+default_orientation vertical
+for_window [class=".*"] split toggle 
+
+# ************************** #
+# ---- Floating Windows ---- #
+# ************************** #
+for_window [class="St"] floating enable;
+
+# i3wm bar
+bar {
+        # Bar program
+        status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
+	#status_command i3blocks
+        # Position of the bar
+        position top
+        
+        # Bar colors
+        colors {
+		background $bg-color
+	    	separator #757575
+                #                  border             background         text
+                focused_workspace  $bg-color          $bg-color          $text-color
+		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+        }
+}
+
+# ------------------------------------------ #
+# ========= Startup Applications =========== #
+# ------------------------------------------ #
+# Invert scrolling
+exec_always --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113 
+
+exec_always flameshot
+# Disable tap while typing
+#exec syndaemon -i 0.3 -t -K -R
+
+# Apps on start
+#exec_always choose_wallpaper
+
+#set $feh exec --no-startup-id 
+#exec feh --bg-scale $HOME/.dotfiles/wallpapers/youshouldbeworkingnow.jpg
+#exec feh --bg-scale $HOME/.config/i3/wallpaper/wallpaper1.png
+
+exec --no-startup-id nitrogen --restore
+
+# Sysmem compositor
+exec_always compton
+
+# ---------------------------------------- #
+# ========= Bindsym(Shortcuts) =========== #
+# ---------------------------------------- #
 # Launch terminal
 bindsym $mod+Return exec st 
 
@@ -30,16 +127,16 @@ bindsym $mod+Return exec st
 bindsym $mod+q kill   
 
 # Change focused window left
-bindsym $mod+Left focus left    
+bindsym $mod+j focus left    
 # Change focused window down 
-bindsym $mod+Down focus down    
+bindsym $mod+k focus down    
 # Change focused window up 
-bindsym $mod+Up focus up        
+bindsym $mod+u focus up        
 # Change focused window right
-bindsym $mod+Right focus right  
+bindsym $mod+i focus right  
 
 # Move focused window left 
-bindsym $mod+mod1+Left move left      
+bindsym $mod+mod1+Left move left
 # Move focused window down
 bindsym $mod+mod1+Down move down      
 # Move focused window up 
@@ -48,29 +145,44 @@ bindsym $mod+mod1+Up move up
 bindsym $mod+mod1+Right move right    
 
 # Split container in horizontal orientaition
-bindsym $mod+Shift+h split h  
+bindsym $mod+Ctrl+h split h  
 # Split container in vertical orientation
-bindsym $mod+Shift+v split v  
+bindsym $mod+Ctrl+v split v  
 
 ######################################################################################
 ############################### MacOS Hotkeys ########################################
 ######################################################################################
 
-bindsym $mod+v exec xvkbd -no-jump-pointer -xsendevent -text '\Cv'
-bindsym $mod+z exec xvkbd -no-jump-pointer -xsendevent -text '\Cz'
-bindsym $mod+x exec xvkbd -no-jump-pointer -xsendevent -text '\Cx'
-bindsym $mod+c exec xvkbd -no-jump-pointer -xsendevent -text '\Cc'
-#bindsym --release $mod+c exec --no-startup-id xdotool key --clearmodifiers ctrl+c
-bindsym $mod+t exec xvkbd -no-jump-pointer -xsendevent -text '\Ct'
-bindsym $mod+s exec xvkbd -no-jump-pointer -xsendevent -text '\Cs'
-bindsym $mod+r exec xvkbd -no-jump-pointer -xsendevent -text '\Cr'
-bindsym $mod+w exec xvkbd -no-jump-pointer -xsendevent -text '\Cw'
-bindsym $mod1+c exec xvkbd -no-jump-pointer -xsendevent -text 'ç' 
+bindsym --release $mod+x exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cx'
+bindsym --release $mod+c exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cc'
+bindsym --release $mod+v exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cv'
+bindsym --release $mod+Shift+v exec --no-startup-id xdotool key --clearmodifiers ctrl+shift+v
+bindsym --release $mod+Shift+c exec --no-startup-id xdotool key --clearmodifiers ctrl+shift+c
+bindsym --release $mod+z exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cz'
+bindsym --release $mod+a exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Ca'
+bindsym --release $mod+f exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cv'
+bindsym --release $mod+s exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cs'
+bindsym --release $mod+t exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Ct'
+bindsym --release $mod+w exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cv'
+bindsym --release $mod+r exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cr'
+bindsym --release $mod+Up exec --no-startup-id xdotool key --clearmodifiers Page_Up
+bindsym --release $mod+Down exec --no-startup-id xdotool key --clearmodifiers Page_Down
+bindsym --release $mod+Left exec --no-startup-id xdotool key --clearmodifiers Home
+bindsym --release $mod+Right exec --no-startup-id xdotool key --clearmodifiers End
+bindsym --release $mod+BackSpace exec --no-startup-id xdotool key --clearmodifiers Delete
+bindsym --release $mod+Shift+BackSpace exec --no-startup-id xdotool key --clearmodifiers shift+Delete
+bindsym --release $mod+slash exec --no-startup-id xdotool key --clearmodifiers ctrl+slash
+
+bindsym --release $mod+l exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cl'
+bindsym --release $mod+n exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cn'
+
+bindsym --release $mod1+c exec notify-send "Key" "ç"
+
 bindsym $mod+Shift+Left exec xvkbd -no-jump-pointer -xsendevent -text '\C\S\[Left]'
 bindsym $mod+Shift+Right exec xvkbd -no-jump-pointer -xsendevent -text '\C\S\[Right]'
 
-bindsym $mod+comma exec exec xvkbd -no-jump-pointer -xsendevent -text '\A\[Left]'
-bindsym $mod+period exec exec xvkbd -no-jump-pointer -xsendevent -text '\A\[Right]'
+bindsym $mod+bracketleft exec exec xvkbd -no-jump-pointer -xsendevent -text '\A\[Left]'
+bindsym $mod+bracketright exec exec xvkbd -no-jump-pointer -xsendevent -text '\A\[Right]'
 
 bindsym --whole-window $mod+button3 floating toggle
 # Activate Fullscreen Mode
@@ -78,6 +190,7 @@ bindsym $mod+Shift+f fullscreen toggle
 # Activate Picture-in-Picture Mode
 bindsym $mod+y fullscreen disable; floating enable, sticky enable, resize set 250 170;  
 
+bindsym $mod+comma exec $HOME/.config/i3/scripts/i3-scratchpad-dmenu
 
 # Change container layout to stacked (stacked, tabbed, toggle split)
 #bindsym $mod+s layout stacking 
@@ -94,22 +207,9 @@ bindsym $mod+b focus mode_toggle
 
 # Open dmenu
 bindsym $mod+space exec dmenu_run -fn "San Francisco Display:size=13"
-#bindsym $mod+space exec dmenu_run   
 
 # focus the parent container
 #bindsym $mod+a focus parent
-
-# Workspace naming
-set $workspace1 "1: Utilities "
-set $workspace2 "2: Navigation "
-set $workspace3 "3: Folders "
-set $workspace4 "4: Code Editing "
-set $workspace5 "5: Texting "
-set $workspace6 "6: Mail " 
-set $workspace7 "7: Notes "
-set $workspace8 "8: PDF "
-set $workspace9 "9: Tests "
-set $workspace10 "10: Music "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -135,38 +235,8 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
-# Web apps
-assign [class=Firefox|qutebrowser|Chromium] $workspace2
 # URGENT WORKSPACES
-bindsym $mod+u [urgent=latest] focus
-
-# reload the configuration file
-# bindsym $mod+Shift+c reload
-#
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-# Resize windows
-mode "resize" {
-        # Vim bindings
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym ntilde resize grow width 10 px or 10 ppt
-
-        # Arrow bindings
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
+# bindsym $mod+u [urgent=latest] focus
 
 # Resize binding
 bindsym $mod+d mode "resize"
@@ -176,39 +246,6 @@ bindsym $mod+d mode "resize"
 #bindsym $mod+Ctrl+Left resize shrink width 10 px or 10 ppt
 bindsym $mod+Shift+minus resize shrink up 10 px or 10 ppt, resize shrink down 10 px or 10 ppt, resize shrink left 20 px or 20 ppt, resize shrink right 20 px or 20 ppt
 bindsym $mod+Shift+equal resize grow up 10 px or 10 ppt, resize grow down 10 px or 10 ppt, resize grow left 20 px or 20 ppt, resize grow right 20 px or 20 ppt
-# Color config
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color #E53935
-
-# Window colors
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
-
-new_window pixel 0
-
-# i3wm bar
-bar {
-        # Bar program
-        status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
-	      #status_command i3blocks
-        # Position of the bar
-        position top
-        
-        # Bar colors
-        colors {
-		      background $bg-color
-	    	  separator #757575
-		      #                  border             background         text
-		      focused_workspace  $bg-color          $bg-color          $text-color
-		      inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-			    urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-        }
-}
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.config/i3/scripts/volume inc 
@@ -237,51 +274,8 @@ bindsym XF86AudioPause exec notify-send "Tecla" "Play/Pause"
 bindsym XF86AudioNext exec notify-send "Tecla" "Next"
 bindsym XF86AudioPrev exec notify-send "Tecla" "Previous"
 
-# Personal KeyBindings
-bindsym $mod+o exec i3lock --color "$bg-color"
 #bindsym $mod+x exec i3lock 
-bindsym $mod+Shift+x exec shutdown -h now
-
-# Invert scrolling
-exec_always --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113 
-
-# Disable tap while typing
-#exec syndaemon -i 0.3 -t -K -R
-
-# Apps on start
-#exec_always choose_wallpaper
-
-#set $feh exec --no-startup-id 
-#exec feh --bg-scale $HOME/.dotfiles/wallpapers/youshouldbeworkingnow.jpg
-#exec feh --bg-scale $HOME/.config/i3/wallpaper/wallpaper1.png
-
-exec --no-startup-id nitrogen --restore
-
-# Sysmem compositor
-exec_always compton
-
-# Taking a Screenshot
-#bindsym $mod+p exec shutter -s -e -o 'Imagens/%y-%m-%d_%T.png'
-#for_window [class="Shutter"] fullscreen disable, floating enable;
-
-######################################################################################
-################################## i3-gaps ###########################################
-######################################################################################
-for_window [class="^.*"] border pixel 0
-gaps inner 2
-gaps outer 0
-
-# URGENT Window
-# It focus on a window once it becomes urgent
-# You could also combine criteria if you only want to focus certain applications:
-# for_window [urgent="latest" class="XTerm"] focus
-for_window [urgent=latest] focus;
-
-default_orientation vertical
-#for_window [class=".*"] split toggle 
-
-for_window [class="St"] floating enable;
-# Move Workspaces Through Monitors
+bindsym $mod+Shift+l exec i3lock --color "$bg-color"
 
 #bindsym $mod+m move container to output right
 #bindsym $mod+n move container to output left
@@ -289,11 +283,43 @@ for_window [class="St"] floating enable;
 #bindsym $mod+m exec i3-msg move workspace to output right
 #bindsym $mod+n exec i3-msg move workspace to output left
 
-bindsym $mod+m move scratchpad
-bindsym $mod+n scratchpad show
+bindsym $mod+period move scratchpad
+# bindsym $mod+comma scratchpad show
 
 #exec xrandr --output Virtual1 --mode 1680x1050
 
 bindsym $mod+Ctrl+Left workspace prev
 bindsym $mod+Ctrl+Right workspace next
 
+# reload the configuration file
+# bindsym $mod+Shift+c reload
+#
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+# ----------------------------------- #
+# ============= Modes =============== #
+# ----------------------------------- #
+
+# Resize windows
+mode "resize" {
+        # Vim bindings
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym ntilde resize grow width 10 px or 10 ppt
+
+        # Arrow bindings
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
