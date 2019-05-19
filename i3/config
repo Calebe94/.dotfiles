@@ -12,10 +12,10 @@
 # CMD(Macbook) or Super (Windows) key
 set $mod Mod4  
 # Alr_L key
+set $ctrl control
 set $mod1 Mod1  
-
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod  
+floating_modifier $ctrl 
 
 # ----------------------------------- #
 # ========= Customization =========== #
@@ -59,8 +59,9 @@ assign [class=Firefox|qutebrowser|Chromium|Navigator|Nightly] $workspace2
 # ---- i3-gaps ---- #
 # ***************** #
 for_window [class="^.*"] border pixel 0
-gaps inner 2
+gaps inner 5
 gaps outer 0
+smart_gaps on
 
 # URGENT Window
 # It focus on a window once it becomes urgent
@@ -75,7 +76,8 @@ for_window [class=".*"] split toggle
 # ---- Floating Windows ---- #
 # ************************** #
 for_window [class="St"] floating enable;
-
+for_window [class="Pavucontrol"] floating enable;
+#for_window [window_role="PictureInPicture"] fullscreen disable; floating enable, sticky enable;
 # i3wm bar
 bar {
         # Bar program
@@ -112,8 +114,8 @@ exec_always flameshot
 #exec feh --bg-scale $HOME/.dotfiles/wallpapers/youshouldbeworkingnow.jpg
 #exec feh --bg-scale $HOME/.config/i3/wallpaper/wallpaper1.png
 
-exec --no-startup-id nitrogen --restore
-
+#exec --no-startup-id nitrogen --restore
+exec_always --no-startup-id $HOME/.config/i3/scripts/GoesWallpaper/goes_dynamic_wallpaper -r 1808
 # Sysmem compositor
 exec_always compton
 
@@ -122,82 +124,65 @@ exec_always compton
 # ---------------------------------------- #
 # Launch terminal
 bindsym $mod+Return exec st 
+bindsym $ctrl+Return exec st
 
 # Kill focused window
-bindsym $mod+q kill   
+bindsym $ctrl+q kill   
 
-# Change focused window left
-bindsym $mod+j focus left    
+# Change focused window up 
+bindsym $mod+u focus up       
+bindsym $mod+Up focus up        
 # Change focused window down 
 bindsym $mod+k focus down    
-# Change focused window up 
-bindsym $mod+u focus up        
+bindsym $mod+Down focus down    
+# Change focused window left
+bindsym $mod+j focus left    
+bindsym $mod+Left focus left    
 # Change focused window right
 bindsym $mod+i focus right  
+bindsym $mod+Right focus right  
 
-# Move focused window left 
-bindsym $mod+mod1+Left move left
-# Move focused window down
-bindsym $mod+mod1+Down move down      
 # Move focused window up 
-bindsym $mod+mod1+Up move up          
+bindsym $mod+Shift+Up move up          
+# Move focused window down
+bindsym $mod+Shift+Down move down      
+# Move focused window left 
+bindsym $mod+Shift+Left move left
 # Move focused window right 
-bindsym $mod+mod1+Right move right    
+bindsym $mod+Shift+Right move right    
 
 # Split container in horizontal orientaition
-bindsym $mod+Ctrl+h split h  
+bindsym $mod+h split h  
 # Split container in vertical orientation
-bindsym $mod+Ctrl+v split v  
+bindsym $mod+v split v  
 
 ######################################################################################
 ############################### MacOS Hotkeys ########################################
 ######################################################################################
 
-bindsym --release $mod+x exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cx'
-bindsym --release $mod+c exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cc'
-bindsym --release $mod+v exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cv'
-bindsym --release $mod+Shift+v exec --no-startup-id xdotool key --clearmodifiers ctrl+shift+v
-bindsym --release $mod+Shift+c exec --no-startup-id xdotool key --clearmodifiers ctrl+shift+c
-bindsym --release $mod+z exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cz'
-bindsym --release $mod+a exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Ca'
-bindsym --release $mod+f exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cf'
-bindsym --release $mod+s exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cs'
-bindsym --release $mod+t exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Ct'
-bindsym --release $mod+w exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cw'
-bindsym --release $mod+r exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cr'
-bindsym --release $mod+Up exec --no-startup-id xdotool key --clearmodifiers Page_Up
-bindsym --release $mod+Down exec --no-startup-id xdotool key --clearmodifiers Page_Down
-bindsym --release $mod+Left exec --no-startup-id xdotool key --clearmodifiers Home
-bindsym --release $mod+Right exec --no-startup-id xdotool key --clearmodifiers End
-bindsym --release $mod+BackSpace exec --no-startup-id xdotool key --clearmodifiers Delete
-bindsym --release $mod+Shift+BackSpace exec --no-startup-id xdotool key --clearmodifiers shift+Delete
-bindsym --release $mod+slash exec --no-startup-id xdotool key --clearmodifiers ctrl+slash
-
-bindsym --release $mod+l exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cl'
-bindsym --release $mod+n exec --no-startup-id xvkbd -no-jump-pointer -xsendevent -text '\Cn'
-
-bindsym --release $mod1+c exec --no-startup-id xdotool key --clearmodifiers dead_acute+c
-
-bindsym $mod+Shift+Left exec xvkbd -no-jump-pointer -xsendevent -text '\C\S\[Left]'
-bindsym $mod+Shift+Right exec xvkbd -no-jump-pointer -xsendevent -text '\C\S\[Right]'
+#bindsym --release $mod1+c exec --no-startup-id xdotool key --clearmodifiers dead_acute+c
 
 bindsym $mod+bracketleft exec exec xvkbd -no-jump-pointer -xsendevent -text '\A\[Left]'
 bindsym $mod+bracketright exec exec xvkbd -no-jump-pointer -xsendevent -text '\A\[Right]'
 
-bindsym --whole-window $mod+button3 floating toggle
+bindsym --whole-window $ctrl+button3 move scratchpad
 # Activate Fullscreen Mode
 bindsym $mod+Shift+f fullscreen toggle  
 # Activate Picture-in-Picture Mode
-bindsym $mod+y fullscreen disable; floating enable, sticky enable, resize set 250 170;  
 
+bindsym $mod+y fullscreen disable; floating enable, sticky enable;  
 bindsym $mod+comma exec $HOME/.config/i3/scripts/i3-scratchpad-dmenu
+
+# Execute List Open Windows Script
+bindsym $mod+semicolon exec $HOME/.config/i3/scripts/ListWindows
 
 # Change container layout to stacked (stacked, tabbed, toggle split)
 #bindsym $mod+s layout stacking 
 # Change container layout to tabbed 
-bindsym $mod+Shift+t layout tabbed        
+bindsym $mod+t layout tabbed
+#bindsym $mod+Shift+t layout tabbed
 # Change container layout Toggle Split
-bindsym $mod+e layout toggle split  
+bindsym $mod+Shift+t layout toggle split  
 
 # Toggle Tiling/Floating
 bindsym $mod+Shift+space floating toggle  
@@ -206,44 +191,46 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+b focus mode_toggle  
 
 # Open dmenu
-bindsym $mod+space exec dmenu_run -fn "San Francisco Display:size=13"
+bindsym $ctrl+space exec dmenu_run -fn "San Francisco Display:size=13" -p "Programs"
 
+# Screenshot
+bindsym $mod+p exec flameshot gui -p $HOME/Pictures/Screenshots
 # focus the parent container
-#bindsym $mod+a focus parent
+bindsym $mod+a focus parent
 
 # switch to workspace
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace10
+bindsym $ctrl+1 workspace $workspace1
+bindsym $ctrl+2 workspace $workspace2
+bindsym $ctrl+3 workspace $workspace3
+bindsym $ctrl+4 workspace $workspace4
+bindsym $ctrl+5 workspace $workspace5
+bindsym $ctrl+6 workspace $workspace6
+bindsym $ctrl+7 workspace $workspace7
+bindsym $ctrl+8 workspace $workspace8
+bindsym $ctrl+9 workspace $workspace9
+bindsym $ctrl+0 workspace $workspace10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace $workspace6
-bindsym $mod+Shift+7 move container to workspace $workspace7
-bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspace10
+bindsym $ctrl+Shift+1 move container to workspace $workspace1
+bindsym $ctrl+Shift+2 move container to workspace $workspace2
+bindsym $ctrl+Shift+3 move container to workspace $workspace3
+bindsym $ctrl+Shift+4 move container to workspace $workspace4
+bindsym $ctrl+Shift+5 move container to workspace $workspace5
+bindsym $ctrl+Shift+6 move container to workspace $workspace6
+bindsym $ctrl+Shift+7 move container to workspace $workspace7
+bindsym $ctrl+Shift+8 move container to workspace $workspace8
+bindsym $ctrl+Shift+9 move container to workspace $workspace9
+bindsym $ctrl+Shift+0 move container to workspace $workspace10
 
 # URGENT WORKSPACES
-# bindsym $mod+u [urgent=latest] focus
+bindsym $mod+e [urgent=latest] focus
 
 # Resize binding
-bindsym $mod+d mode "resize"
-#bindsym $mod+Ctrl+Right resize grow width 10 px or 10 ppt
-#bindsym $mod+Ctrl+Up resize shrink height 10 px or 10 ppt
-#bindsym $mod+Ctrl+Down resize grow height 10 px or 10 ppt
-#bindsym $mod+Ctrl+Left resize shrink width 10 px or 10 ppt
+bindsym $mod+r mode "resize"
+bindsym $mod+$ctrl+Right resize grow width 10 px or 10 ppt
+bindsym $mod+$ctrl+Up resize shrink height 10 px or 10 ppt
+bindsym $mod+$ctrl+Down resize grow height 10 px or 10 ppt
+bindsym $mod+$ctrl+Left resize shrink width 10 px or 10 ppt
 bindsym $mod+Shift+minus resize shrink up 10 px or 10 ppt, resize shrink down 10 px or 10 ppt, resize shrink left 20 px or 20 ppt, resize shrink right 20 px or 20 ppt
 bindsym $mod+Shift+equal resize grow up 10 px or 10 ppt, resize grow down 10 px or 10 ppt, resize grow left 20 px or 20 ppt, resize grow right 20 px or 20 ppt
 
@@ -266,7 +253,7 @@ bindsym XF86KbdBrightnessUp exec sudo $HOME/.config/i3/scripts/keyboard_backligh
 bindsym XF86KbdBrightnessDown exec sudo $HOME/.config/i3/scripts/keyboard_backlight dec
 
 bindsym XF86LaunchA exec $HOME/.config/i3/scripts/i3-scratchpad-dmenu
-bindsym XF86LaunchB exec dmenu_run -fn "San Francisco Display:size=13"
+bindsym XF86LaunchB exec dmenu_run -fn "San Francisco Display:size=13" -p "Programs"
 
 # Music song controls
 bindsym XF86AudioPlay exec notify-send "Tecla" "Play/Pause"
@@ -283,19 +270,19 @@ bindsym $mod+Shift+l exec i3lock --color "$bg-color"
 #bindsym $mod+m exec i3-msg move workspace to output right
 #bindsym $mod+n exec i3-msg move workspace to output left
 
-bindsym $mod+period move scratchpad
+bindsym $mod+period floating toggle
 # bindsym $mod+comma scratchpad show
 
 #exec xrandr --output Virtual1 --mode 1680x1050
 
-bindsym $mod+Ctrl+Left workspace prev
-bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+$mod1+Left workspace prev
+bindsym $mod+$mod1+Right workspace next
 
 # reload the configuration file
 # bindsym $mod+Shift+c reload
 #
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $ctrl+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
