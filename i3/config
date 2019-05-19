@@ -16,6 +16,7 @@ set $ctrl control
 set $mod1 Mod1  
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $ctrl 
+set $i3-sensible-terminal st
 
 # ----------------------------------- #
 # ========= Customization =========== #
@@ -81,8 +82,8 @@ for_window [class="Pavucontrol"] floating enable;
 # i3wm bar
 bar {
         # Bar program
-        status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
-	#status_command i3blocks
+        #status_command i3blocks -c $HOME/.config/i3/i3blocks.conf --include $HOME/.config/i3/py3status/
+	status_command py3status -c $HOME/.config/i3/py3status.conf
         # Position of the bar
         position top
         
@@ -170,7 +171,8 @@ bindsym --whole-window $ctrl+button3 move scratchpad
 bindsym $mod+Shift+f fullscreen toggle  
 # Activate Picture-in-Picture Mode
 
-bindsym $mod+y fullscreen disable; floating enable, sticky enable;  
+bindsym $mod+y fullscreen disable; floating enable, sticky enable;
+bindsym $ctrl+y fullscreen disable; floating enable, sticky enable;
 bindsym $mod+comma exec $HOME/.config/i3/scripts/i3-scratchpad-dmenu
 
 # Execute List Open Windows Script
