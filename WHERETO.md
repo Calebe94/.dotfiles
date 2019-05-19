@@ -13,3 +13,4 @@ libinput-gestures.conf -> ~/.config/libinput-gestures.conf
 ## i3wm 
 
 i3/ -> ~/.config/i3/
+
