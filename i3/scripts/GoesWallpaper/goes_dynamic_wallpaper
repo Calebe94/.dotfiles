@@ -30,6 +30,8 @@ class Wallpaper(object):
     def __init__(self, folder=DEFAULT_FOLDER, resolution=339):
         self.__folder = folder
         self.__resolution = "{0}x{0}".format(resolution)
+        if not os.path.isdir(self.__folder):
+            os.mkdir(self.__folder)
         logging.debug("Program initialized in {} folder.".format(self.__folder))
 
     def delete_last_wallpaper(self, actual_wallpaper):
