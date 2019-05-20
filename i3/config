@@ -102,7 +102,7 @@ bar {
 # ========= Startup Applications =========== #
 # ------------------------------------------ #
 # Invert scrolling
-exec_always --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113 
+#exec_always --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113 
 
 exec_always flameshot
 # Disable tap while typing
