@@ -119,6 +119,8 @@ exec_always flameshot
 exec_always --no-startup-id $HOME/.config/i3/scripts/GoesWallpaper/goes_dynamic_wallpaper -r 1808
 # Sysmem compositor
 exec_always compton
+exec xmodmap .Xmodmap
+exec libinput-gestures-setup start
 
 # ---------------------------------------- #
 # ========= Bindsym(Shortcuts) =========== #

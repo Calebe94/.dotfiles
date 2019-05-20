@@ -1,5 +1,5 @@
-Xft.dpi: 168
-!Xft.dpi: 144
+!Xft.dpi: 168
+Xft.dpi: 144
 
 *.foreground: #F8F8F2
 *.background: #282A36
