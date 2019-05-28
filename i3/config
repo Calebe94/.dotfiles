@@ -24,20 +24,20 @@ set $i3-sensible-terminal st
 
 # i3-blocks font ?
 font pango:System San Francisco Display 10  
-focus_follows_mouse yes
+focus_follows_mouse no
 
 # Color config
-set $bg-color 	                #2f343f
-set $inactive-bg-color          #2f343f
+set $bg-color 	                #1c1f25
+set $inactive-bg-color          #1c1f25
 set $text-color                 #f3f4f5
 set $inactive-text-color        #676E7D
 set $urgent-bg-color            #E53935
 
 # Window colors
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.focused          $bg-color          $bg-color          $text-color          #00ff00
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive            #00ff00
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          #00ff00
 
 new_window pixel 0
 
@@ -66,25 +66,28 @@ for_window [class="Pavucontrol"] floating enable;
 
 # i3wm bar
 bar {
-        # Bar program
-        #status_command i3blocks -c $HOME/.config/i3/i3blocks.conf --include $HOME/.config/i3/py3status/
+  # Bar program
+  #status_command i3blocks -c $HOME/.config/i3/i3blocks.conf --include $HOME/.config/i3/py3status/
 	status_command py3status -c $HOME/.config/i3/py3status.conf
-        # Position of the bar
-        position top
+  # Position of the bar
+  position top
         
-        # Bar colors
-        colors {
-		background $bg-color
-	    	separator #757575
-                #                  border             background         text
-                focused_workspace  $bg-color          $bg-color          $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-        }
+  # Bar colors
+  colors {
+	background $bg-color
+	separator #757575
+  #                  border             background         text
+  focused_workspace  $bg-color          $bg-color          $text-color
+	inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+	urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+  }
 }
 
 # ------------------------------------------ #
 # ========= Startup Applications =========== #
+# ------------------------------------------ #
+# Invert scrolling
+exec_always --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-110
 
 # Screenshot tool
 exec_always flameshot
@@ -117,9 +120,11 @@ bindsym $ctrl+q kill
 # Change focused window up 
 bindsym $mod+u focus up       
 bindsym $mod+Up focus up        
+
 # Change focused window down 
 bindsym $mod+k focus down    
 bindsym $mod+Down focus down    
+
 # Change focused window left
 bindsym $mod+j focus left    
 bindsym $mod+Left focus left    
@@ -177,7 +182,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+b focus mode_toggle  
 
 # Open dmenu
-bindsym $ctrl+space exec dmenu_run -fn "San Francisco Display:size=13" -p "Programs"
+bindsym $ctrl+space exec j4-dmenu-desktop --dmenu="dmenu -p \"Programs\" -fn \"San Francisco Display:size=13\""
 
 # Screenshot
 bindsym $mod+p exec flameshot gui -p $HOME/Pictures/Screenshots
@@ -221,25 +226,25 @@ bindsym $mod+Shift+minus resize shrink up 10 px or 10 ppt, resize shrink down 10
 bindsym $mod+Shift+equal resize grow up 10 px or 10 ppt, resize grow down 10 px or 10 ppt, resize grow left 20 px or 20 ppt, resize grow right 20 px or 20 ppt
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.config/i3/scripts/volume inc 
-bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.config/i3/scripts/volume dec 
-bindsym XF86AudioMute exec --no-startup-id $HOME/.config/i3/scripts/volume mute
+bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.config/i3/scripts/volume inc -v
+bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.config/i3/scripts/volume dec -v
+bindsym XF86AudioMute exec --no-startup-id $HOME/.config/i3/scripts/volume mute -v
 
 # Sreen brightness controls
 # install xbacklight and hope that this works: https://askubuntu.com/questions/715306/xbacklight-no-outputs-have-backlight-property-no-sys-class-backlight-folder
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec $HOME/.config/i3/scripts/backlight -s display -t inc
+bindsym XF86MonBrightnessDown exec $HOME/.config/i3/scripts/backlight -s display -t dec
 
 # Touchpad controlsamixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }'
 bindsym XF86TouchpadToggle exec $HOME/bin/toggletouchpad # toggle touchpad
 
 # Add the path to the script to the /etc/sudoers file.
 # Example: username ALL=(root) NOPASSWD: /path/to/the/script 
-bindsym XF86KbdBrightnessUp exec sudo $HOME/.config/i3/scripts/keyboard_backlight inc
-bindsym XF86KbdBrightnessDown exec sudo $HOME/.config/i3/scripts/keyboard_backlight dec
+bindsym XF86KbdBrightnessUp exec $HOME/.config/i3/scripts/backlight -s keyboard -t inc
+bindsym XF86KbdBrightnessDown exec $HOME/.config/i3/scripts/backlight -s keyboard -t dec
 
 bindsym XF86LaunchA exec $HOME/.config/i3/scripts/i3-scratchpad-dmenu
-bindsym XF86LaunchB exec dmenu_run -fn "San Francisco Display:size=13" -p "Programs"
+bindsym XF86LaunchB exec j4-dmenu-desktop --dmenu="dmenu -p \"Programs\" -fn \"San Francisco Display:size=13\""
 
 # Music song controls
 bindsym XF86AudioPlay exec notify-send "Tecla" "Play/Pause"
@@ -273,26 +278,25 @@ bindsym $ctrl+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-
 # ----------------------------------- #
 # ============= Modes =============== #
 # ----------------------------------- #
 
 # Resize windows
 mode "resize" {
-        # Vim bindings
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym ntilde resize grow width 10 px or 10 ppt
+  # Vim bindings
+  bindsym j resize shrink width 10 px or 10 ppt
+  bindsym k resize grow height 10 px or 10 ppt
+  bindsym l resize shrink height 10 px or 10 ppt
+  bindsym ntilde resize grow width 10 px or 10 ppt
 
-        # Arrow bindings
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+  # Arrow bindings
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
