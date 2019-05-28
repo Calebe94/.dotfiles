@@ -121,6 +121,7 @@ exec_always --no-startup-id $HOME/.config/i3/scripts/GoesWallpaper/goes_dynamic_
 exec_always compton
 exec xmodmap .Xmodmap
 exec libinput-gestures-setup start
+exec_always lxpolkit
 
 # ---------------------------------------- #
 # ========= Bindsym(Shortcuts) =========== #
